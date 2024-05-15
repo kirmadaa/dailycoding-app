@@ -23,7 +23,7 @@ pipeline {
                 bat '''
                 mkdir -p dist
                 cd dist
-                copy -r ../dist/your-angular-project/* .
+                copy -r ..\\dist\\your-angular-project\\* .
                 jar -cvf ROOT.war *
                 '''
                 echo 'Package Stage Completed'
@@ -34,7 +34,7 @@ pipeline {
             steps {
                 echo 'Starting Deploy Stage'
                 // Copy the WAR file to Tomcat webapps directory
-                bat 'cp dist/ROOT.war /path/to/tomcat/webapps/ROOT.war'
+                bat 'copy /y ..\\dist\\ROOT.war "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps"'
                 echo 'Deploy Stage Completed'
             }
         }
