@@ -23,7 +23,7 @@ pipeline {
                 bat '''
                 mkdir -p dist
                 cd dist
-                copy -r ..\\dist\\your-angular-project\\* .
+                xcopy /E /I dist\\your-angular-project\\* dist\\
                 jar -cvf ROOT.war *
                 '''
                 echo 'Package Stage Completed'
