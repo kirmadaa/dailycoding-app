@@ -9,7 +9,10 @@ pipeline {
             steps {
                 echo 'Starting Build Stage'
                 // Install project dependencies
+                bat 'npm audit fix'
+                bat 'npm audit fix --force'
                 bat 'npm install'
+
                 // Build the Angular project
                 bat 'ng build --prod'
                 echo 'Build Stage Completed'
